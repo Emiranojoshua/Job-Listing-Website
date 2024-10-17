@@ -14,3 +14,9 @@ Route::get('/about', function () {
 Route::get('/jobs', function () {
     return 'jobs page';
 });
+Route::get('/login', function () {
+    return 'login page';
+});
+Route::get('/logout', function () {
+    return 'logout page';
+});

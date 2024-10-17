@@ -1,6 +1,6 @@
 @props([
-    'testing' => true,
+    'active' => true,
 ])
 <li>
-    <a {{ $attributes }} >{{ $testing }}{{ $slot }}</a>
+    <a {{ $attributes }} class="{{ $active ? 'active' : '' }}">{{ $slot }}</a>
 </li>

@@ -7,12 +7,27 @@ body {
     background-color: white;
 }
 
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
 .nav{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    width: 100%;
 }
 
 .nav li{
     padding: 10px 20px;
+}
+.nav a{
+    padding: 10px;
+}
+
+.nav .active{
+    background-color: blue;
+    color: white;
 }
