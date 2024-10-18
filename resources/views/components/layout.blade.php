@@ -17,12 +17,20 @@
             <x-nav-link href="contact" :active="request()->is('contact')">Contact</x-nav-link>
             <x-nav-link href="jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
         </ul>
-        <ul class="nav">
+        @guest
+           <ul class="nav">
             <x-nav-link href="/login" :active="request()->is('/login')">Login</x-nav-link>
-            <x-nav-link href="/logout" :active="request()->is('/logout')">Logout</x-nav-link>
-        </ul>
+            <x-nav-link href="/register" :active="request()->is('/register')">Register</x-nav-link>
+        </ul> 
+        @endguest
+        @auth
+            <x-form action="/logout" method="post" _method="delete">
+                <x-input type="submit" value="logout"></x-input>
+            </x-form>
+        @endauth
     </nav>
 
+    {{ $slot }}
 </body>
 
 </html>
