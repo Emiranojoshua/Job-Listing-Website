@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
+use App\Models\Jobs;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     return view('home');
@@ -14,7 +16,10 @@ Route::get('/about', function () {
     return view('about');
 });
 Route::get('/jobs', function () {
-    return 'jobs page';
+    return view(
+        'jobs.index',
+        ['jobs' => Jobs::all()]
+    );
 });
 
 
@@ -22,8 +27,8 @@ Route::get('/jobs', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::delete('/logout', [SessionController::class, 'destroy']);
-    Route::get('/logout', function(){
-        return redirect('/'); 
+    Route::get('/logout', function () {
+        return redirect('/');
     });
 });
 

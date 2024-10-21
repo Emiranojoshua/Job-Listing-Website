@@ -1,1 +1,0 @@
-</br><label {{ $attributes }}>{{ $slot }}</label>

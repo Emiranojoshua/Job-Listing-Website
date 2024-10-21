@@ -1,24 +1,18 @@
 <x-layout>
-    <x-form action="/register" method="POST" _method="post">
-        <x-label for="full_name">Full name</x-label>
-        <x-input type="full_name" name="full_name" :value="old('full_name')"></x-input>
-        <x-error error="full_name"></x-error>
+    <x-form.form class="space-y-6" action="/register" method="POST" caption="Register account">
 
-        <x-label for="email">Email</x-label>
-        <x-input type="email" name="email" :value="old('email')"></x-input>
-        <x-error error="email"></x-error>
+        <x-form.label-input label="full_name" type="full_name" name="full_name" :value="old('full_name')">Full
+            Name</x-form.label-input>
+
+        <x-form.label-input label="email" type="email" name="email" :value="old('email')">Email</x-form.label-input>
+
+        <x-form.label-input label="password" type="password" name="password">Password</x-form.label-input>
+
+        <x-form.label-input label="password_confirmation" type="password"
+            name="password_confirmation">Confirm Password</x-form.label-input>
+        {{-- <x-form.error error="password"></x-form.error> --}}
 
 
-        <x-label for="password">Password</x-label>
-        <x-input type="password" name="password"></x-input>
-        <x-error error="password"></x-error>
-
-
-        <x-label for="password_confirmation">Confirm Password</x-label>
-        <x-input type="password" name="password_confirmation"></x-input>
-        <x-error error="password_confirmation"></x-error>
-
-        </br>
-        <x-input type="submit" value="Register"></x-input>
-    </x-form>
+        <x-form.submit-button>Regiser</x-form.submit-button>
+    </x-form.form>
 </x-layout>
