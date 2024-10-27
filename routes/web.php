@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JobsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Models\Jobs;
@@ -15,13 +16,13 @@ Route::get('/contact', function () {
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/jobs', function () {
-    return view(
-        'jobs.index',
-        ['jobs' => Jobs::all()]
-    );
-});
 
+
+
+Route::controller(JobsController::class)->group(function () {
+    Route::get('/jobs', 'index');
+    Route::get('/jobs/{job}','show');
+});
 
 
 

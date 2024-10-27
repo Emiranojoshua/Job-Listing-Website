@@ -1,22 +1,17 @@
 <x-layout>
-    @auth
-        ou are loggged in
-    @endauth
 
-    @foreach ($jobs as $job)
-        {{ $job->employers->name}}</br>
-    @endforeach
-    @guest
-        please login in
-    @endguest
 
-    <div>
-        <a href="#">
-            <p class="employer">Employer name</p>
-            <p class="job_details">
-                job deails wih 
-            </p>
-            <p>paymen amount</p>
-        </a>
-    </div>
+    <x-jobs.index-layout>
+
+      @foreach ($jobs as $job)
+            <x-jobs.index-job url="{{ $job->id }}" employer="{{ $job->employers->name }}"
+                title="{{ $job->title }}"></x-jobs.index-job>
+        @endforeach 
+
+
+    </x-jobs.index-layout>
+
+
+
+
 </x-layout>
