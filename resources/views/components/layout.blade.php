@@ -57,14 +57,15 @@
                         </div>
                     </div> </br> --}}
                     @guest
-                        <x-nav-link href="login" :active="request()->is('login')">Login</x-nav-link>
+                        <x-nav-link href="/login" :active="request()->is('login')">Login</x-nav-link>
 
-                        <x-nav-link href="register" :active="request()->is('register')">Register</x-nav-link>
+                        <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
                     @endguest
 
 
                     @auth
 
+                        <x-nav-link href="/jobs/create" :active="request()->is('jobs/create')">Create Job</x-nav-link>
 
                         <x-form.form action="/logout" method="post" _method="delete">
                             <x-form.submit-button>Logout</x-form.submit-button>

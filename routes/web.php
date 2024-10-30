@@ -3,7 +3,6 @@
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
-use App\Models\Jobs;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,12 +17,22 @@ Route::get('/about', function () {
 });
 
 
-
 Route::controller(JobsController::class)->group(function () {
     Route::get('/jobs', 'index');
-    Route::get('/jobs/{job}','show');
+    Route::post('/jobs', 'store')
+        ->middleware('auth');
+    Route::get('/jobs/create', 'create')
+        ->middleware('auth');
+    Route::get('/jobs/{job}/edit', 'edit')
+        ->middleware(['auth', 'can:edit,job']);
+    Route::get('/jobs/{job}', 'show');
+    Route::patch('/jobs/{job}', 'update')
+        ->middleware(['auth', 'can:edit,job']);
+    Route::delete('/jobs/{job}', 'destroy')
+        ->middleware(['auth', 'can:edit,job']);
 });
 
+// Route::resource('jobs', JobsController::class);
 
 
 Route::middleware(['auth'])->group(function () {
