@@ -42,13 +42,15 @@ class JobsController extends Controller
             'time' => ['required'],
         ]);
 
+        // dd($auth::user()->employer->id);
+
         $job::create([
             'title' => $request->title,
             'location' => $request->location,
             'time' => $request->time,
             'salary' => $request->salary,
             'due_date' => date_create('now'),
-            'employers_id' => auth::user()->getAuthIdentifier(),
+            'employers_id' => $auth::user()->employer->id,
         ]);
 
         return redirect('/jobs/' . $job->id);

@@ -10,11 +10,18 @@ class Employers extends Model
     /** @use HasFactory<\Database\Factories\EmployersFactory> */
     use HasFactory;
 
-    public function user(){
+    protected $fillable = [
+        'name',
+        'user_id'
+    ];
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function jobs(){
+    public function jobs()
+    {
         return $this->hasMany(Jobs::class);
     }
 }

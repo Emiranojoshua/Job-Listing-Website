@@ -62,10 +62,12 @@
                         <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
                     @endguest
 
-
                     @auth
 
-                        <x-nav-link href="/jobs/create" :active="request()->is('jobs/create')">Create Job</x-nav-link>
+
+                        @can('create', App\Jobs::class)
+                            <x-nav-link href="/jobs/create" :active="request()->is('jobs/create')">Create Job</x-nav-link>
+                        @endcan
 
                         <x-form.form action="/logout" method="post" _method="delete">
                             <x-form.submit-button>Logout</x-form.submit-button>
