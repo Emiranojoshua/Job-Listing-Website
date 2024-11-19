@@ -3,12 +3,15 @@
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\TestController;
 use App\Models\Jobs;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 
+
+Route::get('/test', TestController::class);
 
 Route::get('/', function () {
     return view('home');

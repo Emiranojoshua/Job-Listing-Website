@@ -8,7 +8,7 @@
                 title="{{ $job->title }}"></x-jobs.index-job>
         @endforeach 
 
-
+        {{ $jobs->links() }}
     </x-jobs.index-layout>
 
 
